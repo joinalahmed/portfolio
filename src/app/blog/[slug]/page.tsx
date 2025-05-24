@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getBlogPostBySlug, mockBlogPosts } from '@/lib/data';
+import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, CalendarDays, UserCircle, Tag } from 'lucide-react';
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = getBlogPostBySlug(params.slug);
 
   if (!post) {
@@ -100,7 +100,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 }
 
 export async function generateStaticParams() {
-  return mockBlogPosts.map((post) => ({
+  const posts = getAllBlogPosts();
+  return posts.map((post) => ({
     slug: post.slug,
   }));
 }
