@@ -1,3 +1,4 @@
+
 # Firebase Studio Next.js Project
 
 This is a Next.js application bootstrapped with Firebase Studio.
@@ -11,7 +12,7 @@ This project uses Next.js, React, Tailwind CSS, ShadCN UI components, and Genkit
 - Node.js (version 18.x or higher recommended)
 - npm or yarn
 
-### Development
+### Installation
 
 First, install the dependencies:
 
@@ -20,6 +21,8 @@ npm install
 # or
 yarn install
 ```
+
+### Development Server
 
 Then, run the development server:
 
@@ -33,16 +36,17 @@ Open [http://localhost:9002](http://localhost:9002) (or the port specified in yo
 
 You can start editing the main page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
 
-### Genkit Development
+### Genkit Development Server
 
-If your project uses Genkit for AI features, you might need to run the Genkit development server separately:
+If your project uses Genkit for AI features, you will likely need to run the Genkit development server separately in another terminal:
 
 ```bash
 npm run genkit:dev
-# or for watching changes
+```
+For watching changes and auto-reloading Genkit flows:
+```bash
 npm run genkit:watch
 ```
-
 Ensure your Genkit flows are correctly referenced and imported (e.g., in `src/ai/dev.ts`).
 
 ## Key Technologies
