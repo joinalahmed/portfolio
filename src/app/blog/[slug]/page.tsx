@@ -7,6 +7,12 @@ import { ArrowLeft, CalendarDays, UserCircle, Tag } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { format } from 'date-fns';
 import type { Metadata } from 'next';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeHighlight from 'rehype-highlight';
+// You may need to import a highlight.js CSS theme here or in globals.css for full syntax highlighting colors
+// For example: import 'highlight.js/styles/atom-one-dark.css'; 
+// Ensure you have highlight.js installed if you do this.
 
 type BlogPostPageProps = {
   params: { slug: string };
@@ -31,28 +37,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) {
     notFound();
   }
-
-  // Basic Markdown to HTML conversion (for <pre><code> and line breaks)
-  // In a real app, use a proper Markdown parser like 'marked' or 'react-markdown'
-  const renderContent = (content: string) => {
-    // Replace ```lang\ncode``` with <pre><code class="language-lang">code</code></pre>
-    let htmlContent = content.replace(/```(\w*)\n([\s\S]*?)```/g, (_match, lang, code) => {
-        const languageClass = lang ? `language-${lang}` : '';
-        // Basic HTML escaping for code content
-        const escapedCode = code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        return `<pre><code class="${languageClass}">${escapedCode.trim()}</code></pre>`;
-    });
-    // Replace inline `code` with <code>code</code>
-    htmlContent = htmlContent.replace(/`([^`]+)`/g, '<code>$1</code>');
-    // Replace newlines (not in pre/code) with <br />
-    htmlContent = htmlContent.split('\n').map(paragraph => {
-        if (paragraph.startsWith('<pre>')) return paragraph; // Don't add <br> to preformatted text
-        return paragraph.trim() === '' ? '' : `<p>${paragraph}</p>`;
-    }).join('');
-
-    return { __html: htmlContent };
-  };
-
 
   return (
     <div className="container-readable py-8">
@@ -101,9 +85,15 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         )}
 
         <div
-          className="prose prose-lg dark:prose-invert max-w-none prose-p:text-foreground prose-headings:text-foreground prose-strong:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-li:text-foreground"
-          dangerouslySetInnerHTML={renderContent(post.content)}
-        />
+          className="prose prose-lg dark:prose-invert max-w-none prose-p:text-foreground prose-headings:text-foreground prose-strong:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-li:text-foreground prose-pre:bg-card prose-pre:p-4 prose-pre:rounded-md prose-pre:text-sm prose-code:font-mono prose-code:text-foreground prose-code:before:content-none prose-code:after:content-none"
+        >
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeHighlight]}
+          >
+            {post.content}
+          </ReactMarkdown>
+        </div>
       </article>
     </div>
   );
