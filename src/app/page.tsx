@@ -26,10 +26,10 @@ export default function HomePage() {
             <div className="text-center md:text-left">
               <Cpu className="mx-auto md:mx-0 h-16 w-16 text-primary mb-6" />
               <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl mb-6">
-                Building Intelligent Systems: An AI Architect's Portfolio
+                Welcome to My AI Journey
               </h1>
               <p className="mx-auto max-w-2xl md:max-w-none text-xl text-muted-foreground mb-10">
-                I'm an AI Architect specializing in designing and implementing cutting-edge AI solutions that drive business value and innovation.
+                Explore my insights, experiences, and blog as I navigate the world of Artificial Intelligence.
               </p>
               <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
                 <Button asChild size="lg" className="shadow-lg hover:shadow-primary/50 transition-shadow">
