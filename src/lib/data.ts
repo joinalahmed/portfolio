@@ -81,7 +81,7 @@ As AI becomes more integrated, architects must consider the ethical implications
 
 AI is set to revolutionize solution architecture, empowering architects with intelligent tools and insights. Embracing these changes will be key to building the next generation of robust, scalable, and intelligent systems.
     `,
-    author: 'AI Architect',
+    author: 'Joinal Ahmed',
     date: '2024-07-28T10:00:00Z',
     categories: ['AI', 'Architecture', 'Future Tech'],
     imageUrl: 'https://placehold.co/800x450.png',
@@ -123,7 +123,7 @@ async function queryPrivateLLM(prompt, apiKey) {
 
 Stay tuned for more insights on building robust AI solutions!
     `,
-    author: 'AI Architect',
+    author: 'Joinal Ahmed',
     date: '2024-07-15T14:30:00Z',
     categories: ['LLM', 'Enterprise AI', 'NLP'],
     imageUrl: 'https://placehold.co/800x450.png',

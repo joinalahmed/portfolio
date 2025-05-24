@@ -42,7 +42,7 @@ export default function HomePage() {
             <div className="flex justify-center items-center">
               <Image
                 src="https://placehold.co/400x400.png"
-                alt="Your Name - AI Architect"
+                alt="Joinal Ahmed - AI Architect"
                 width={400}
                 height={400}
                 className="rounded-full shadow-2xl object-cover aspect-square"

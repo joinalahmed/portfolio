@@ -98,7 +98,7 @@ export async function createBlogPostAction(
     title,
     content,
     excerpt: content.substring(0, 150) + '...', // Mock excerpt
-    author: 'AI Architect', // Mock author
+    author: 'Joinal Ahmed', // Updated author
     date: new Date().toISOString(),
     categories,
     imageUrl: imageUrl || undefined,
