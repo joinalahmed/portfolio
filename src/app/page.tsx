@@ -18,23 +18,38 @@ export default function HomePage() {
   return (
     <div className="space-y-16 md:space-y-24">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 text-center overflow-hidden rounded-lg shadow-xl bg-gradient-to-br from-primary/10 via-background to-background">
-         <div className="absolute inset-0 opacity-50" style={{backgroundImage: 'radial-gradient(circle, var(--primary-DEFAULT) 0.5px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
+      <section className="relative py-16 md:py-24 overflow-hidden rounded-lg shadow-xl bg-gradient-to-br from-primary/10 via-background to-background">
+         <div className="absolute inset-0 opacity-50" style={{backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 0.5px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
         <div className="container relative z-10 mx-auto px-4">
-          <Cpu className="mx-auto h-16 w-16 text-primary mb-6" />
-          <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl mb-6">
-            Architecting the Future of Intelligence
-          </h1>
-          <p className="mx-auto max-w-2xl text-xl text-muted-foreground mb-10">
-            I'm an AI Architect specializing in designing and implementing cutting-edge AI solutions that drive business value and innovation.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button asChild size="lg" className="shadow-lg hover:shadow-primary/50 transition-shadow">
-              <Link href="/projects">View My Work</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="shadow-lg hover:shadow-accent/50 transition-shadow">
-              <Link href="/contact">Get In Touch</Link>
-            </Button>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="text-center md:text-left">
+              <Cpu className="mx-auto md:mx-0 h-16 w-16 text-primary mb-6" />
+              <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl mb-6">
+                Architecting the Future of Intelligence
+              </h1>
+              <p className="mx-auto max-w-2xl md:max-w-none text-xl text-muted-foreground mb-10">
+                I'm an AI Architect specializing in designing and implementing cutting-edge AI solutions that drive business value and innovation.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                <Button asChild size="lg" className="shadow-lg hover:shadow-primary/50 transition-shadow">
+                  <Link href="/projects">View My Work</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="shadow-lg hover:shadow-accent/50 transition-shadow">
+                  <Link href="/contact">Get In Touch</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="flex justify-center items-center">
+              <Image
+                src="https://placehold.co/400x400.png"
+                alt="Your Name - AI Architect"
+                width={400}
+                height={400}
+                className="rounded-full shadow-2xl object-cover aspect-square"
+                data-ai-hint="portrait professional"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
