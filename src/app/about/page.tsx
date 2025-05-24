@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Mail, Linkedin, Briefcase } from 'lucide-react';
+import { CheckCircle, Mail, Linkedin, Briefcase, Building } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -19,6 +19,15 @@ const skills = [
   "Data Engineering & MLOps Pipelines",
   "Generative AI & LLM Integration",
   "Ethical AI & Responsible Innovation"
+];
+
+const advisedCompanies = [
+  { name: "Innovatech", logoUrl: "https://placehold.co/150x70.png?text=Innovatech", dataAiHint: "tech logo" },
+  { name: "DataSolutions Co.", logoUrl: "https://placehold.co/150x70.png?text=DataSolutions", dataAiHint: "data logo" },
+  { name: "AI Forward Inc.", logoUrl: "https://placehold.co/150x70.png?text=AI+Forward", dataAiHint: "ai logo" },
+  { name: "NextGen Startup", logoUrl: "https://placehold.co/150x70.png?text=NextGen", dataAiHint: "startup logo" },
+  { name: "CloudPioneers", logoUrl: "https://placehold.co/150x70.png?text=CloudPioneers", dataAiHint: "cloud logo" },
+  { name: "HealthAI Corp", logoUrl: "https://placehold.co/150x70.png?text=HealthAI", dataAiHint: "health logo" },
 ];
 
 export default function AboutPage() {
@@ -95,6 +104,37 @@ export default function AboutPage() {
                   <p className="text-base text-muted-foreground">{skill}</p>
                 </div>
               ))}
+            </CardContent>
+          </Card>
+
+          <Card className="shadow-lg">
+            <CardHeader>
+              <CardTitle className="flex items-center text-2xl">
+                <Building className="mr-3 h-6 w-6 text-primary" />
+                Companies I've Advised
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-6">
+                I've had the privilege of advising a diverse range of companies, from innovative startups to established enterprises, helping them harness the power of AI.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 items-center">
+                {advisedCompanies.map((company) => (
+                  <div key={company.name} className="flex justify-center items-center p-3 bg-muted/30 rounded-lg aspect-[2/1] hover:shadow-md transition-shadow">
+                    <Image
+                      src={company.logoUrl}
+                      alt={`${company.name} logo`}
+                      width={120}
+                      height={60}
+                      className="object-contain max-h-[50px] w-auto"
+                      data-ai-hint={company.dataAiHint}
+                    />
+                  </div>
+                ))}
+              </div>
+               <p className="text-xs text-muted-foreground mt-6 text-center">
+                Logos are for illustrative purposes.
+              </p>
             </CardContent>
           </Card>
           
