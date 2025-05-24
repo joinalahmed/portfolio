@@ -19,7 +19,7 @@ export default function HomePage() {
   return (
     <div className="space-y-16 md:space-y-24">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden rounded-lg shadow-xl bg-gradient-to-br from-primary/10 via-background to-background">
+      <section className="relative py-24 md:py-40 overflow-hidden rounded-lg shadow-xl bg-gradient-to-br from-primary/10 via-background to-background">
          <div className="absolute inset-0 opacity-50" style={{backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 0.5px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
         <div className="container relative z-10 mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
