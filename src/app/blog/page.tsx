@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { BlogPostCard } from '@/components/blog/blog-post-card';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { mockBlogPosts } from '@/lib/data';
-import { Button } from '@/components/ui/button';
-import { PlusCircle } from 'lucide-react';
+// import { Button } from '@/components/ui/button'; // Button no longer needed
+// import { PlusCircle } from 'lucide-react'; // Icon no longer needed
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -20,12 +20,14 @@ export default function BlogListPage() {
           subtitle="Sharing insights, tutorials, and thoughts on the ever-evolving landscape of AI and software architecture."
           className="mb-0"
         />
+        {/* 
         <Button asChild className="flex-shrink-0">
           <Link href="/blog/create">
             <PlusCircle className="mr-2 h-5 w-5" />
             Create New Post
           </Link>
-        </Button>
+        </Button> 
+        */}
       </div>
       
       {mockBlogPosts.length === 0 ? (
