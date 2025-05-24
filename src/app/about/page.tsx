@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Mail, Linkedin, Briefcase, Building } from 'lucide-react';
+import { CheckCircle, Mail, Linkedin, Briefcase, Building, Youtube, Mic } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Me - Joinal Ahmed - Archiblog',
-  description: 'Learn more about Joinal Ahmed, an AI Solutions Architect with experience at Google Cloud, AWS, and helping startups.',
+  description: 'Learn more about Joinal Ahmed, an AI Solutions Architect, public speaker, and startup advisor with experience at Google Cloud and AWS.',
 };
 
 const skills = [
@@ -18,7 +18,8 @@ const skills = [
   "Machine Learning Model Design (NLP, CV, Predictive Analytics)",
   "Data Engineering & MLOps Pipelines",
   "Generative AI & LLM Integration",
-  "Ethical AI & Responsible Innovation"
+  "Ethical AI & Responsible Innovation",
+  "Public Speaking & Technical Workshops on AI"
 ];
 
 const advisedCompanies = [
@@ -30,19 +31,41 @@ const advisedCompanies = [
   { name: "HealthAI Corp", logoUrl: "https://placehold.co/150x70.png?text=HealthAI", dataAiHint: "health logo" },
 ];
 
+const publicTalks = [
+  { 
+    title: "The Future of Generative AI in Enterprise", 
+    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // Replace with actual video ID
+    description: "A keynote on how businesses can leverage generative AI for innovation and efficiency.",
+    videoId: "dQw4w9WgXcQ" // Replace with actual video ID
+  },
+  { 
+    title: "Ethical Considerations in AI Development", 
+    youtubeUrl: "https://www.youtube.com/watch?v=abcdef12345", // Replace with actual video ID
+    description: "Discussing the importance of building responsible AI systems.",
+    videoId: "abcdef12345" // Replace with actual video ID
+  },
+  { 
+    title: "Scaling ML Operations (MLOps) in the Cloud", 
+    youtubeUrl: "https://www.youtube.com/watch?v=ghijkl67890", // Replace with actual video ID
+    description: "Practical strategies for implementing and managing MLOps pipelines on major cloud platforms.",
+    videoId: "ghijkl67890" // Replace with actual video ID
+  },
+];
+
+
 export default function AboutPage() {
   return (
     <div className="space-y-12 md:space-y-16">
       <SectionHeading
         title="About Joinal Ahmed"
-        subtitle="AI Solutions Architect passionate about building innovative and impactful intelligent systems."
+        subtitle="AI Solutions Architect, Public Speaker, and Startup Advisor passionate about building innovative and impactful intelligent systems."
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
         <div className="lg:col-span-1 flex flex-col items-center text-center">
           <div className="relative w-60 h-60 md:w-72 md:h-72 mb-6">
             <Image
-              src="https://placehold.co/400x400.png"
+              src="https://placehold.co/400x400.png" // Replace with your actual photo URL
               alt="Joinal Ahmed - AI Architect"
               width={400}
               height={400}
@@ -52,7 +75,7 @@ export default function AboutPage() {
             />
           </div>
           <h2 className="text-3xl font-bold text-foreground mb-2">Joinal Ahmed</h2>
-          <p className="text-lg text-primary mb-4">AI Solutions Architect</p>
+          <p className="text-lg text-primary mb-4">AI Solutions Architect & Speaker</p>
           <div className="flex space-x-4 mb-6">
             <Button variant="outline" size="icon" asChild>
               <Link href="mailto:contact@archiblog.example.com" aria-label="Email Joinal Ahmed">
@@ -62,6 +85,11 @@ export default function AboutPage() {
             <Button variant="outline" size="icon" asChild>
               <Link href="https://linkedin.com/in/ai-architect-example" target="_blank" rel="noopener noreferrer" aria-label="Joinal Ahmed's LinkedIn Profile">
                 <Linkedin className="h-5 w-5" />
+              </Link>
+            </Button>
+            <Button variant="outline" size="icon" asChild>
+              <Link href="https://youtube.com/@yourchannel" target="_blank" rel="noopener noreferrer" aria-label="Joinal Ahmed's YouTube Channel">
+                <Youtube className="h-5 w-5" />
               </Link>
             </Button>
           </div>
@@ -81,8 +109,8 @@ export default function AboutPage() {
               </p>
               <p>
                 I thrive on collaborating with organizations of all sizes, from dynamic startups to established enterprises,
-                helping them to unlock the transformative potential of AI. My focus is on creating systems that are not only
-                technologically advanced but also practical, ethical, and aligned with business objectives.
+                helping them to unlock the transformative potential of AI. I also enjoy sharing my knowledge through public speaking engagements, 
+                discussing the latest trends and ethical considerations in AI.
               </p>
               <p>
                 I believe in a hands-on approach, staying current with the latest advancements in AI/ML, and fostering a culture
@@ -104,6 +132,45 @@ export default function AboutPage() {
                   <p className="text-base text-muted-foreground">{skill}</p>
                 </div>
               ))}
+            </CardContent>
+          </Card>
+
+          <Card className="shadow-lg">
+            <CardHeader>
+              <CardTitle className="flex items-center text-2xl">
+                <Mic className="mr-3 h-6 w-6 text-primary" />
+                Public Speaking & Talks
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-6">
+                I frequently speak at conferences and events on topics related to AI, machine learning, and cloud architecture. Here are a few selected talks:
+              </p>
+              <div className="space-y-6">
+                {publicTalks.map((talk) => (
+                  <div key={talk.videoId} className="flex flex-col sm:flex-row gap-4 items-start p-4 border rounded-lg hover:shadow-md transition-shadow bg-muted/20">
+                    <Link href={talk.youtubeUrl} target="_blank" rel="noopener noreferrer" className="block w-full sm:w-48 aspect-video rounded-md overflow-hidden relative shadow-lg flex-shrink-0 group">
+                      <Image
+                        src={`https://img.youtube.com/vi/${talk.videoId}/hqdefault.jpg`}
+                        alt={`Thumbnail for ${talk.title}`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 192px"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        data-ai-hint="youtube thumbnail"
+                      />
+                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 flex items-center justify-center transition-colors duration-300">
+                        <Youtube className="h-12 w-12 text-white/70 group-hover:text-white transition-colors duration-300" />
+                      </div>
+                    </Link>
+                    <div className="flex-1">
+                      <Link href={talk.youtubeUrl} target="_blank" rel="noopener noreferrer">
+                        <h4 className="text-lg font-semibold text-primary hover:underline">{talk.title}</h4>
+                      </Link>
+                      <p className="text-sm text-muted-foreground mt-1 line-clamp-3">{talk.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </CardContent>
           </Card>
 
@@ -137,7 +204,6 @@ export default function AboutPage() {
                     </div>
                   ))}
                 </div>
-                 {/* Optional: Gradient fade effect at edges */}
                 <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-card to-transparent group-hover:from-card/80 transition-opacity"></div>
                 <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-card to-transparent group-hover:from-card/80 transition-opacity"></div>
               </div>

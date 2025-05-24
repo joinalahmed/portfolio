@@ -127,7 +127,7 @@
 
   .animate-marquee-scroll {
     display: flex;
-    animation: marquee-scroll-animation 40s linear infinite;
+    animation: marquee-scroll-animation 25s linear infinite; /* Updated speed from 40s to 25s */
   }
 
   .marquee-item {
