@@ -124,4 +124,21 @@
   .container-readable {
     @apply max-w-3xl mx-auto;
   }
+
+  .animate-marquee-scroll {
+    display: flex;
+    animation: marquee-scroll-animation 40s linear infinite;
+  }
+
+  .marquee-item {
+    flex-shrink: 0;
+    display: flex; /* For centering content if needed */
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@keyframes marquee-scroll-animation {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Scrolls by half the total width, assuming content is doubled */
 }

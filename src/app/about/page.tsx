@@ -116,21 +116,30 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-6">
-                I've had the privilege of advising a diverse range of companies, from innovative startups to established enterprises, helping them harness the power of AI.
+                I've had the privilege of advising a diverse range of companies, helping them harness the power of AI.
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 items-center">
-                {advisedCompanies.map((company) => (
-                  <div key={company.name} className="flex justify-center items-center p-3 bg-muted/30 rounded-lg aspect-[2/1] hover:shadow-md transition-shadow">
-                    <Image
-                      src={company.logoUrl}
-                      alt={`${company.name} logo`}
-                      width={120}
-                      height={60}
-                      className="object-contain max-h-[50px] w-auto"
-                      data-ai-hint={company.dataAiHint}
-                    />
-                  </div>
-                ))}
+              <div className="relative w-full overflow-hidden group">
+                <div className="animate-marquee-scroll flex">
+                  {[...advisedCompanies, ...advisedCompanies].map((company, index) => (
+                    <div
+                      key={`${company.name}-${index}`}
+                      className="marquee-item mx-4 w-36 h-24 p-3 bg-muted/30 rounded-lg hover:shadow-md transition-shadow"
+                      aria-hidden={index >= advisedCompanies.length ? "true" : undefined}
+                    >
+                      <Image
+                        src={company.logoUrl}
+                        alt={`${company.name} logo`}
+                        width={120}
+                        height={60}
+                        className="object-contain max-h-[50px] w-auto"
+                        data-ai-hint={company.dataAiHint}
+                      />
+                    </div>
+                  ))}
+                </div>
+                 {/* Optional: Gradient fade effect at edges */}
+                <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-card to-transparent group-hover:from-card/80 transition-opacity"></div>
+                <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-card to-transparent group-hover:from-card/80 transition-opacity"></div>
               </div>
                <p className="text-xs text-muted-foreground mt-6 text-center">
                 Logos are for illustrative purposes.
