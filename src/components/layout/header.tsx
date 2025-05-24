@@ -12,7 +12,8 @@ import {
   Mail,
   Menu,
   Feather,
-  User, // Added User icon for About Me
+  User, 
+  LogIn, // Added LogIn icon
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { FC } from 'react';
@@ -25,10 +26,11 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { href: '/', label: 'Home', icon: Home },
-  { href: '/about', label: 'About Me', icon: User }, // Added About Me link
+  { href: '/about', label: 'About Me', icon: User },
   { href: '/projects', label: 'Projects', icon: Briefcase },
   { href: '/blog', label: 'Blog', icon: Newspaper },
   { href: '/contact', label: 'Contact', icon: Mail },
+  { href: '/login', label: 'Login', icon: LogIn }, // Added Login link
 ];
 
 export function Header() {
