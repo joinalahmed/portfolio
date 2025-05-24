@@ -15,11 +15,11 @@ export async function generateMetadata({ params }: ProjectDetailPageProps): Prom
   const project = getProjectById(params.id);
   if (!project) {
     return {
-      title: 'Project Not Found - AI Portfolio & Blog',
+      title: 'Project Not Found - Joinal Ahmed',
     };
   }
   return {
-    title: `${project.title} - AI Portfolio & Blog`,
+    title: `${project.title} - Joinal Ahmed`,
     description: project.description,
   };
 }

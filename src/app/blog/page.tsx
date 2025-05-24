@@ -7,7 +7,7 @@ import { PlusCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog - AI Portfolio & Blog',
+  title: 'Blog - Joinal Ahmed',
   description: 'Insights and articles on AI, architecture, and technology from Joinal Ahmed.',
 };
 

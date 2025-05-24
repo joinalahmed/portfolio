@@ -8,7 +8,7 @@ import { CheckCircle, Mail, Linkedin, Briefcase, Building, Youtube, Mic, Briefca
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Me - Joinal Ahmed - AI Portfolio & Blog',
+  title: 'About Me - Joinal Ahmed',
   description: 'Learn more about Joinal Ahmed, an AI Solutions Architect, public speaker, and startup advisor with experience at Google Cloud and AWS.',
 };
 

@@ -19,7 +19,7 @@ import type { Metadata } from 'next';
 // Cannot export Metadata from client component. Move to parent or make server component.
 // For now, this will be a client component and metadata can be in a parent route or a `head.tsx` if needed.
 // export const metadata: Metadata = {
-//   title: 'Contact - AI Portfolio & Blog',
+//   title: 'Contact - Joinal Ahmed',
 //   description: 'Get in touch with Joinal Ahmed for collaborations, inquiries, or to discuss AI projects.',
 // };
 

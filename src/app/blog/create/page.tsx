@@ -20,8 +20,8 @@ import type { Metadata } from 'next';
 
 // Cannot export Metadata from client component.
 // export const metadata: Metadata = {
-//   title: 'Create New Post - AI Portfolio & Blog',
-//   description: 'Create a new blog post for AI Portfolio & Blog.',
+//   title: 'Create New Post - Joinal Ahmed',
+//   description: 'Create a new blog post for Joinal Ahmed.',
 // };
 
 const BlogPostSchema = z.object({

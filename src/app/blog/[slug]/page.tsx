@@ -22,11 +22,11 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const post = getBlogPostBySlug(params.slug);
   if (!post) {
     return {
-      title: 'Post Not Found - AI Portfolio & Blog'
+      title: 'Post Not Found - Joinal Ahmed'
     }
   }
   return {
-    title: `${post.title} - AI Portfolio & Blog`,
+    title: `${post.title} - Joinal Ahmed`,
     description: post.excerpt,
   };
 }
