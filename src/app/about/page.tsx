@@ -90,7 +90,7 @@ export default function AboutPage() {
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
-        <div className="lg:col-span-1 flex flex-col items-center text-center lg:sticky lg:top-24">
+        <div className="lg:col-span-1 flex flex-col items-center text-center lg:items-start lg:text-left lg:sticky lg:top-24">
           <div className="relative w-60 h-60 md:w-72 md:h-72 mb-6">
             <Image
               src="https://placehold.co/400x400.png" 
