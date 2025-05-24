@@ -13,7 +13,6 @@ import {
   Menu,
   Feather,
   User, 
-  LogIn, // Added LogIn icon
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { FC } from 'react';
@@ -30,7 +29,7 @@ const navItems: NavItem[] = [
   { href: '/projects', label: 'Projects', icon: Briefcase },
   { href: '/blog', label: 'Blog', icon: Newspaper },
   { href: '/contact', label: 'Contact', icon: Mail },
-  { href: '/login', label: 'Login', icon: LogIn }, // Added Login link
+  // { href: '/login', label: 'Login', icon: LogIn }, // Removed Login link
 ];
 
 export function Header() {
