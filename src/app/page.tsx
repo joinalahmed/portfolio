@@ -7,9 +7,9 @@ import { CheckCircle, Cpu, Briefcase, Edit3 } from 'lucide-react';
 import { SectionHeading } from '@/components/shared/section-heading';
 
 const skills = [
-  "AI Strategy & Roadmap Development",
+  "AI/ML Solutions Architecture on AWS & Google Cloud",
+  "AI Strategy & Prototyping for Startups",
   "Machine Learning Model Design (NLP, CV, Predictive Analytics)",
-  "Cloud Architecture (AWS, Azure, GCP)",
   "Data Engineering & MLOps Pipelines",
   "Generative AI & LLM Integration",
   "Ethical AI & Responsible Innovation"
