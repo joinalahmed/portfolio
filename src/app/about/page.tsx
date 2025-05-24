@@ -8,7 +8,7 @@ import { CheckCircle, Mail, Linkedin, Briefcase, Building, Youtube, Mic, Briefca
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Me - Joinal Ahmed - Archiblog',
+  title: 'About Me - Joinal Ahmed - AI Portfolio & Blog',
   description: 'Learn more about Joinal Ahmed, an AI Solutions Architect, public speaker, and startup advisor with experience at Google Cloud and AWS.',
 };
 
@@ -106,7 +106,7 @@ export default function AboutPage() {
           <p className="text-lg text-primary mb-4">AI Solutions Architect & Speaker</p>
           <div className="flex space-x-4 mb-6">
             <Button variant="outline" size="icon" asChild>
-              <Link href="mailto:contact@archiblog.example.com" aria-label="Email Joinal Ahmed">
+              <Link href="mailto:contact@joinalahmed.dev" aria-label="Email Joinal Ahmed">
                 <Mail className="h-5 w-5" />
               </Link>
             </Button>

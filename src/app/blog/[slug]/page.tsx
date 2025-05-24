@@ -22,11 +22,11 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const post = getBlogPostBySlug(params.slug);
   if (!post) {
     return {
-      title: 'Post Not Found - Archiblog'
+      title: 'Post Not Found - AI Portfolio & Blog'
     }
   }
   return {
-    title: `${post.title} - Archiblog`,
+    title: `${post.title} - AI Portfolio & Blog`,
     description: post.excerpt,
   };
 }

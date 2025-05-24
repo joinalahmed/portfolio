@@ -4,8 +4,8 @@ import { mockProjects } from '@/lib/data';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Projects - Archiblog',
-  description: 'A showcase of AI and architecture projects by Archiblog.',
+  title: 'Projects - AI Portfolio & Blog',
+  description: 'A showcase of AI and architecture projects by Joinal Ahmed.',
 };
 
 export default function ProjectsPage() {

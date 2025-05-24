@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Archiblog - AI Architect Portfolio',
+  title: 'AI Portfolio & Blog - Joinal Ahmed',
   description: 'Portfolio and blog of an AI Architect.',
 };
 

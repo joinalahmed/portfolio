@@ -7,8 +7,8 @@ import { PlusCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog - Archiblog',
-  description: 'Insights and articles on AI, architecture, and technology from Archiblog.',
+  title: 'Blog - AI Portfolio & Blog',
+  description: 'Insights and articles on AI, architecture, and technology from Joinal Ahmed.',
 };
 
 export default function BlogListPage() {
@@ -16,7 +16,7 @@ export default function BlogListPage() {
     <div className="space-y-12">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <SectionHeading
-          title="The Archiblog"
+          title="The Blog"
           subtitle="Sharing insights, tutorials, and thoughts on the ever-evolving landscape of AI and software architecture."
           className="mb-0"
         />

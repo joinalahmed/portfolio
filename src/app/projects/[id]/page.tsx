@@ -15,11 +15,11 @@ export async function generateMetadata({ params }: ProjectDetailPageProps): Prom
   const project = getProjectById(params.id);
   if (!project) {
     return {
-      title: 'Project Not Found - Archiblog',
+      title: 'Project Not Found - AI Portfolio & Blog',
     };
   }
   return {
-    title: `${project.title} - Archiblog`,
+    title: `${project.title} - AI Portfolio & Blog`,
     description: project.description,
   };
 }

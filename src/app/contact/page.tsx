@@ -19,8 +19,8 @@ import type { Metadata } from 'next';
 // Cannot export Metadata from client component. Move to parent or make server component.
 // For now, this will be a client component and metadata can be in a parent route or a `head.tsx` if needed.
 // export const metadata: Metadata = {
-//   title: 'Contact - Archiblog',
-//   description: 'Get in touch with Archiblog for collaborations, inquiries, or to discuss AI projects.',
+//   title: 'Contact - AI Portfolio & Blog',
+//   description: 'Get in touch with Joinal Ahmed for collaborations, inquiries, or to discuss AI projects.',
 // };
 
 const ContactFormSchema = z.object({
@@ -162,7 +162,7 @@ export default function ContactPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 text-muted-foreground">
-              <p><strong>Email:</strong> contact@archiblog.example.com</p>
+              <p><strong>Email:</strong> contact@joinalahmed.dev</p>
               <p><strong>LinkedIn:</strong> linkedin.com/in/ai-architect-example</p>
               <p>Feel free to connect on professional networks.</p>
             </CardContent>

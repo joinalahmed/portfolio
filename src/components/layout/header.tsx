@@ -57,7 +57,7 @@ export function Header() {
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Feather className="h-7 w-7 text-primary" />
-          <span className="text-xl font-bold text-foreground">Archiblog</span>
+          <span className="text-xl font-bold text-foreground">AI Portfolio</span>
         </Link>
 
         <nav className="hidden items-center space-x-2 md:flex">
@@ -75,7 +75,7 @@ export function Header() {
             <SheetContent side="right" className="w-[280px] p-6">
               <div className="mb-6 flex items-center gap-2">
                  <Feather className="h-7 w-7 text-primary" />
-                <span className="text-xl font-bold text-foreground">Archiblog</span>
+                <span className="text-xl font-bold text-foreground">AI Portfolio</span>
               </div>
               <nav className="flex flex-col space-y-3">
                 {renderNavLinks(true)}
