@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Mail, Linkedin, Briefcase, Building, Youtube, Mic } from 'lucide-react';
+import { CheckCircle, Mail, Linkedin, Briefcase, Building, Youtube, Mic, BriefcaseBusiness } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -22,6 +22,34 @@ const skills = [
   "Public Speaking & Technical Workshops on AI"
 ];
 
+const workHistory = [
+  {
+    company: "Google Cloud",
+    role: "AI Solutions Architect",
+    period: "2021 - Present", // Example, please update
+    description: "Led the design and implementation of cutting-edge AI and Machine Learning solutions for key enterprise clients leveraging Google Cloud's AI platform. Specialized in MLOps, generative AI, and large-scale data processing pipelines.",
+    logoUrl: "https://placehold.co/100x100.png?text=GCP",
+    dataAiHint: "google cloud logo",
+  },
+  {
+    company: "Amazon Web Services (AWS)",
+    role: "Senior AI/ML Solutions Architect",
+    period: "2019 - 2021", // Example, please update
+    description: "Empowered customers to build and deploy sophisticated AI/ML workloads on AWS. Focused on architecting solutions for natural language processing, computer vision, and predictive analytics, driving innovation and business value.",
+    logoUrl: "https://placehold.co/100x100.png?text=AWS",
+    dataAiHint: "aws logo",
+  },
+  {
+    company: "Tech Innovators Inc.",
+    role: "Machine Learning Engineer",
+    period: "2017 - 2019", // Example, please update
+    description: "Developed and deployed machine learning models for various applications, including recommendation systems and fraud detection. Contributed to the full ML lifecycle from data ingestion to model monitoring.",
+    logoUrl: "https://placehold.co/100x100.png?text=TII",
+    dataAiHint: "tech company logo",
+  },
+];
+
+
 const advisedCompanies = [
   { name: "Innovatech", logoUrl: "https://placehold.co/150x70.png?text=Innovatech", dataAiHint: "tech logo" },
   { name: "DataSolutions Co.", logoUrl: "https://placehold.co/150x70.png?text=DataSolutions", dataAiHint: "data logo" },
@@ -34,21 +62,21 @@ const advisedCompanies = [
 const publicTalks = [
   { 
     title: "The Future of Generative AI in Enterprise", 
-    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // Replace with actual video ID
+    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", 
     description: "A keynote on how businesses can leverage generative AI for innovation and efficiency.",
-    videoId: "dQw4w9WgXcQ" // Replace with actual video ID
+    videoId: "dQw4w9WgXcQ" 
   },
   { 
     title: "Ethical Considerations in AI Development", 
-    youtubeUrl: "https://www.youtube.com/watch?v=abcdef12345", // Replace with actual video ID
+    youtubeUrl: "https://www.youtube.com/watch?v=abcdef12345", 
     description: "Discussing the importance of building responsible AI systems.",
-    videoId: "abcdef12345" // Replace with actual video ID
+    videoId: "abcdef12345" 
   },
   { 
     title: "Scaling ML Operations (MLOps) in the Cloud", 
-    youtubeUrl: "https://www.youtube.com/watch?v=ghijkl67890", // Replace with actual video ID
+    youtubeUrl: "https://www.youtube.com/watch?v=ghijkl67890", 
     description: "Practical strategies for implementing and managing MLOps pipelines on major cloud platforms.",
-    videoId: "ghijkl67890" // Replace with actual video ID
+    videoId: "ghijkl67890" 
   },
 ];
 
@@ -62,10 +90,10 @@ export default function AboutPage() {
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
-        <div className="lg:col-span-1 flex flex-col items-center text-center">
+        <div className="lg:col-span-1 flex flex-col items-center text-center lg:sticky lg:top-24">
           <div className="relative w-60 h-60 md:w-72 md:h-72 mb-6">
             <Image
-              src="https://placehold.co/400x400.png" // Replace with your actual photo URL
+              src="https://placehold.co/400x400.png" 
               alt="Joinal Ahmed - AI Architect"
               width={400}
               height={400}
@@ -118,6 +146,48 @@ export default function AboutPage() {
                 cutting-edge generative AI application, or strategizing an enterprise-wide AI adoption, my goal is to deliver
                 solutions that create tangible value.
               </p>
+            </CardContent>
+          </Card>
+
+          <Card className="shadow-lg">
+            <CardHeader>
+              <CardTitle className="flex items-center text-2xl">
+                <BriefcaseBusiness className="mr-3 h-6 w-6 text-primary" /> {/* Changed icon */}
+                Work History
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="relative border-l-2 border-primary/30 pl-10 pr-2 py-4 space-y-12">
+                {workHistory.map((job, index) => (
+                  <div key={index} className="relative flex items-start gap-x-4 sm:gap-x-6">
+                    {/* Dot on the timeline. -left-[calc(2.5rem + 0.5625rem - 1px)] 
+                        Targeting: padding-left (pl-10 = 2.5rem) + half-dot-width (10px = 0.625rem) - half-border-width (1px = 0.0625rem)
+                        Effectively: -(half_dot_width - half_border_width) from the content start of the parent.
+                        dot w-5 (20px), border 2px. -(10px - 1px) = -9px.
+                    */}
+                    <div className="absolute -left-[calc(2.5rem + 9px - 2px)] top-[6px] h-5 w-5 rounded-full bg-primary border-[3px] border-card shadow-md"></div>
+                    
+                    {job.logoUrl && (
+                       <div className="flex-shrink-0 pt-1">
+                        <Image
+                          src={job.logoUrl}
+                          alt={`${job.company} logo`}
+                          width={44} // Adjusted size
+                          height={44} // Adjusted size
+                          className="rounded-md object-contain bg-muted/20 p-1"
+                          data-ai-hint={job.dataAiHint}
+                        />
+                      </div>
+                    )}
+                    <div className="flex-grow">
+                      <h4 className="text-lg sm:text-xl font-semibold text-foreground leading-tight">{job.role}</h4>
+                      <p className="text-base sm:text-md text-primary font-medium">{job.company}</p>
+                      <p className="text-xs text-muted-foreground mb-1.5">{job.period}</p>
+                      <p className="text-sm sm:text-base text-muted-foreground">{job.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </CardContent>
           </Card>
 
@@ -190,14 +260,14 @@ export default function AboutPage() {
                   {[...advisedCompanies, ...advisedCompanies].map((company, index) => (
                     <div
                       key={`${company.name}-${index}`}
-                      className="marquee-item mx-4 w-36 h-24 p-3 bg-muted/30 rounded-lg hover:shadow-md transition-shadow"
+                      className="marquee-item mx-4 w-36 h-24 p-3 bg-muted/30 rounded-lg hover:shadow-md transition-shadow flex items-center justify-center" // Added flex for centering
                       aria-hidden={index >= advisedCompanies.length ? "true" : undefined}
                     >
                       <Image
                         src={company.logoUrl}
                         alt={`${company.name} logo`}
                         width={120}
-                        height={60}
+                        height={50} // Adjusted height
                         className="object-contain max-h-[50px] w-auto"
                         data-ai-hint={company.dataAiHint}
                       />
@@ -232,3 +302,5 @@ export default function AboutPage() {
     </div>
   );
 }
+
+    
