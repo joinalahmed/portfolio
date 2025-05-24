@@ -48,8 +48,8 @@ export function getAllBlogPosts(): BlogPost[] {
   try {
     fileNames = fs.readdirSync(postsDirectory);
   } catch (error) {
-    // If the directory doesn't exist, return an empty array
-    console.warn("src/content/blog directory not found. No blog posts will be loaded.");
+    // If the directory doesn't exist or is inaccessible, log a warning and return an empty array
+    console.warn(`Warning: Could not read 'src/content/blog' directory. Error: ${(error as Error).message}. No blog posts will be loaded.`);
     return [];
   }
 
@@ -58,36 +58,52 @@ export function getAllBlogPosts(): BlogPost[] {
     .map(fileName => {
       const slug = fileName.replace(/\.md$/, '');
       const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-      const { data, content } = matter(fileContents);
+      try {
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const { data, content } = matter(fileContents);
 
-      if (!data.title || !data.date || !data.author || !data.excerpt) {
-        console.warn(`Markdown file ${fileName} is missing required frontmatter (title, date, author, excerpt). Skipping.`);
+        // Validate required frontmatter fields
+        if (!data.title || !data.date || !data.author || !data.excerpt) {
+          console.warn(`Markdown file '${fileName}' is missing one or more required frontmatter fields (title, date, author, excerpt). Skipping this post.`);
+          return null;
+        }
+        
+        // Validate date specifically before trying to convert
+        const dateObject = new Date(data.date);
+        if (isNaN(dateObject.getTime())) {
+            console.warn(`Markdown file '${fileName}' has an invalid date string: '${data.date}'. Skipping this post.`);
+            return null;
+        }
+
+        return {
+          id: slug,
+          slug,
+          title: data.title,
+          content,
+          excerpt: data.excerpt,
+          author: data.author,
+          date: dateObject.toISOString(), // Ensure consistent date format
+          categories: data.categories || [],
+          imageUrl: data.imageUrl,
+          dataAiHint: data.dataAiHint,
+        } as BlogPost;
+      } catch (error) {
+        console.warn(`Error reading or parsing markdown file '${fileName}': ${(error as Error).message}. Skipping this post.`);
         return null;
       }
-      
-      return {
-        id: slug,
-        slug,
-        title: data.title,
-        content,
-        excerpt: data.excerpt,
-        author: data.author,
-        date: new Date(data.date).toISOString(), // Ensure consistent date format
-        categories: data.categories || [],
-        imageUrl: data.imageUrl,
-        dataAiHint: data.dataAiHint,
-      } as BlogPost;
     });
 
   const validPosts = allPostsData.filter(post => post !== null) as BlogPost[];
 
   // Sort posts by date in descending order
   return validPosts.sort((a, b) => {
+    // Dates are already ISO strings, so new Date() is correct here
     if (new Date(a.date) < new Date(b.date)) {
       return 1;
-    } else {
+    } else if (new Date(a.date) > new Date(b.date)) {
       return -1;
+    } else {
+      return 0;
     }
   });
 }
@@ -98,8 +114,15 @@ export function getBlogPostBySlug(slug: string): BlogPost | undefined {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
+    // Validate required frontmatter fields
     if (!data.title || !data.date || !data.author || !data.excerpt) {
-        console.warn(`Markdown file ${slug}.md is missing required frontmatter (title, date, author, excerpt).`);
+        console.warn(`Markdown file '${slug}.md' for getBlogPostBySlug is missing one or more required frontmatter fields (title, date, author, excerpt).`);
+        return undefined;
+    }
+
+    const dateObject = new Date(data.date);
+    if (isNaN(dateObject.getTime())) {
+        console.warn(`Markdown file '${slug}.md' for getBlogPostBySlug has an invalid date string: '${data.date}'.`);
         return undefined;
     }
 
@@ -110,13 +133,14 @@ export function getBlogPostBySlug(slug: string): BlogPost | undefined {
       content,
       excerpt: data.excerpt,
       author: data.author,
-      date: new Date(data.date).toISOString(),
+      date: dateObject.toISOString(),
       categories: data.categories || [],
       imageUrl: data.imageUrl,
       dataAiHint: data.dataAiHint,
     } as BlogPost;
   } catch (error) {
     // If file not found or other error
+    console.warn(`Error reading or parsing markdown file '${slug}.md' for getBlogPostBySlug: ${(error as Error).message}.`);
     return undefined;
   }
 }
