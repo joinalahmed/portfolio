@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -11,6 +12,7 @@ import {
   Mail,
   Menu,
   Feather,
+  User, // Added User icon for About Me
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { FC } from 'react';
@@ -23,6 +25,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { href: '/', label: 'Home', icon: Home },
+  { href: '/about', label: 'About Me', icon: User }, // Added About Me link
   { href: '/projects', label: 'Projects', icon: Briefcase },
   { href: '/blog', label: 'Blog', icon: Newspaper },
   { href: '/contact', label: 'Contact', icon: Mail },
