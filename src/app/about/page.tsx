@@ -125,7 +125,7 @@ export default function AboutPage() {
 
         <div className="lg:col-span-2 space-y-8">
           <Card className="shadow-lg">
-            <CardHeader>
+            <CardHeader className="py-8">
               <CardTitle className="text-2xl">My Journey & Philosophy</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
