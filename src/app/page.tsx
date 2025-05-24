@@ -26,7 +26,7 @@ export default function HomePage() {
             <div className="text-center md:text-left">
               <Cpu className="mx-auto md:mx-0 h-16 w-16 text-primary mb-6" />
               <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl mb-6">
-                Welcome to My AI Journey
+                AI Architecture: Insights & Innovations
               </h1>
               <p className="mx-auto max-w-2xl md:max-w-none text-xl text-muted-foreground mb-10">
                 Explore my insights, experiences, and blog as I navigate the world of Artificial Intelligence.
