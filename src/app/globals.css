@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -42,39 +38,50 @@ body {
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
   .dark {
-    --background: 0 0% 3.9%;
+    --background: 231 12% 15%; /* #22222A */
     --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
+
+    --card: 231 12% 18%; /* Slightly lighter than background, e.g., #2A2A33 */
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
+
+    --popover: 231 12% 18%;
     --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+
+    --primary: 276 45% 75%; /* #BFA2DB */
+    --primary-foreground: 276 45% 15%; /* Darker purple for text on primary bg */
+
+    --secondary: 276 45% 65%; /* A slightly desaturated/darker variant of primary */
+    --secondary-foreground: 276 45% 10%;
+
+    --muted: 231 12% 25%;
+    --muted-foreground: 231 12% 70%; /* Lighter gray for muted text */
+
+    --accent: 285 23% 80%; /* #D0BCD5 */
+    --accent-foreground: 285 23% 20%; /* Darker lavender for text on accent bg */
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --border: 231 12% 22%; /* Subtle border, slightly lighter than bg */
+    --input: 231 12% 22%;
+    --ring: 276 45% 75%; /* Primary color for focus rings */
+    
+    --chart-1: 276 45% 75%;
+    --chart-2: 285 23% 80%;
+    --chart-3: 276 45% 65%;
+    --chart-4: 231 12% 70%;
+    --chart-5: 0 0% 98%;
+
+    --sidebar-background: 231 12% 10%;
+    --sidebar-foreground: 0 0% 80%;
+    --sidebar-primary: 276 45% 75%;
+    --sidebar-primary-foreground: 276 45% 15%;
+    --sidebar-accent: 285 23% 80%;
+    --sidebar-accent-foreground: 285 23% 20%;
+    --sidebar-border: 231 12% 20%;
+    --sidebar-ring: 276 45% 75%;
   }
 }
 
@@ -83,6 +90,38 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+  h1 { @apply text-4xl lg:text-5xl; }
+  h2 { @apply text-3xl lg:text-4xl; }
+  h3 { @apply text-2xl lg:text-3xl; }
+  h4 { @apply text-xl lg:text-2xl; }
+  p { @apply leading-relaxed; }
+
+  /* Code block styling */
+  pre {
+    @apply bg-card p-4 rounded-md overflow-x-auto my-4 text-sm;
+  }
+  code {
+    @apply font-mono;
+  }
+  pre code {
+    @apply text-foreground; /* Or a specific code color like --accent-foreground */
+  }
+  /* Inline code */
+  :not(pre) > code {
+    @apply bg-muted px-1 py-0.5 rounded-sm text-sm text-primary;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  .container-readable {
+    @apply max-w-3xl mx-auto;
   }
 }
