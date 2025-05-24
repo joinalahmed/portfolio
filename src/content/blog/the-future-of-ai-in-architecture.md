@@ -48,4 +48,3 @@ The solution architect of the future will need to be an "AI-literate" architect.
 *   How to design for data, as data is the lifeblood of AI.
 
 The journey of AI in solution architecture is just beginning. By embracing these changes and continuously learning, architects can lead the way in building the next generation of intelligent, adaptive, and impactful systems.
-```

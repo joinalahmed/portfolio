@@ -71,4 +71,3 @@ A typical Vertex AI Pipeline might include these steps:
 ## Conclusion
 
 Implementing MLOps on Google Cloud using Vertex AI and its ecosystem of services allows organizations to streamline their machine learning workflows, accelerate time-to-market for ML applications, and ensure the reliability and scalability of their AI solutions. By adopting MLOps principles and leveraging GCP's powerful tools, teams can move beyond ad-hoc model development to a more systematic and robust approach to productionizing machine learning.
-```
