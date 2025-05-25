@@ -27,13 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark"> {/* Enforce dark theme */}
-      <body
+    <html lang="en" className="dark">{/* Enforce dark theme */}<body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans bg-background text-foreground`}
       >
         <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-20">
             {children}
           </main>
           <Footer />

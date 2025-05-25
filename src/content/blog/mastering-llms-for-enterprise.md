@@ -1,10 +1,9 @@
-
 ---
 title: "Mastering LLMs for Enterprise: A Practical Guide"
 date: "2024-07-22"
 author: "Joinal Ahmed"
 categories: ["LLM", "Enterprise AI", "Development"]
-imageUrl: "https://placehold.co/800x450.png"
+imageUrl: "https://miro.medium.com/v2/resize:fit:639/0*7g9YwVKVTSSlXufr.jpg"
 dataAiHint: "server room"
 excerpt: "A guide to effectively integrating and managing Large Language Models within enterprise environments, focusing on security, scalability, and value."
 ---

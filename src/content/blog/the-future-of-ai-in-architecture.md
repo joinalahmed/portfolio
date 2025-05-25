@@ -1,4 +1,3 @@
-
 ---
 title: "The Future of AI in Solution Architecture"
 date: "2024-07-28"

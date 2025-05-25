@@ -14,11 +14,7 @@ import rehypeHighlight from 'rehype-highlight';
 // For example: import 'highlight.js/styles/atom-one-dark.css'; 
 // Ensure you have highlight.js installed if you do this.
 
-type BlogPostPageProps = {
-  params: { slug: string };
-};
-
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = getBlogPostBySlug(params.slug);
   if (!post) {
     return {
@@ -31,7 +27,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = getBlogPostBySlug(params.slug);
 
   if (!post) {

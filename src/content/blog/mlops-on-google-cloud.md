@@ -1,4 +1,3 @@
-
 ---
 title: "MLOps on Google Cloud: A Practical Guide"
 date: "2024-07-15"
